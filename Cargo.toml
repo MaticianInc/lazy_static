@@ -14,12 +14,8 @@ keywords = ["macro", "lazy", "static"]
 categories = [ "no-std", "rust-patterns", "memory-management" ]
 exclude = ["/.travis.yml", "/appveyor.yml"]
 
-[dependencies.spin]
-version = "0.5.0"
-optional = true
-
 [features]
-spin_no_std = ["spin"]
+spin_no_std = []
 
 [dev-dependencies]
 doc-comment = "0.3.1"

@@ -88,19 +88,11 @@ fn main() {
 
 The `Deref` implementation uses a hidden static variable that is guarded by an atomic check on each access.
 
-# Cargo features
-
-This crate provides one cargo feature:
-
-- `spin_no_std`: This allows using this crate in a no-std environment, by depending on the standalone `spin` crate.
-
 */
 
 #![doc(html_root_url = "https://docs.rs/lazy_static/1.4.0")]
 #![no_std]
 
-#[cfg(not(feature = "spin_no_std"))]
-#[path="inline_lazy.rs"]
 #[doc(hidden)]
 pub mod lazy;
 
@@ -110,11 +102,6 @@ extern crate doc_comment;
 
 #[cfg(test)]
 doctest!("../README.md");
-
-#[cfg(feature = "spin_no_std")]
-#[path="core_lazy.rs"]
-#[doc(hidden)]
-pub mod lazy;
 
 #[doc(hidden)]
 pub use core::ops::Deref as __Deref;
